@@ -36,6 +36,13 @@
             android:name=".HomePage">
 
         </activity>
+        <meta-data
+            android:name="com.google.android.gms.auth.API_KEY"
+            android:value="@string/default_web_client_id" />
+
+        <meta-data
+            android:name="com.google.android.gms.app.id"
+            android:value="@string/default_web_client_id" />
 
     </application>
 

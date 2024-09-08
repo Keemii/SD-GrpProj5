@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "373563758597",
+    "project_id": "flypro-e7f49",
+    "storage_bucket": "flypro-e7f49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373563758597:android:b7c610d39fe2f22740a46c",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOmB08CzSEu7kYFDuMrfl2yf5IqxF6Xcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
