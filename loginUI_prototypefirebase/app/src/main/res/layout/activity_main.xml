@@ -16,10 +16,12 @@
         android:text="Log Out"
         android:textSize="20sp"
         app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="639dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -30,10 +32,12 @@
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="70dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -44,25 +48,30 @@
         android:textColor="@color/white"
         android:textSize="26sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="122dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/buttonNext"
+        android:id="@+id/buttonToHomePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick=""
-        android:padding="12dp"
         android:background="#2A405B"
+        android:onClick="logout"
+        android:padding="12dp"
         android:text="Next"
+        android:textColor="#0097A7"
         android:textSize="20sp"
         app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="566dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875"
         tools:ignore="HardcodedText,MissingConstraints,OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

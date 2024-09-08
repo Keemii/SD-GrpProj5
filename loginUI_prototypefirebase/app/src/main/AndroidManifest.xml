@@ -31,6 +31,12 @@
 
             <!-- Remove intent-filter here -->
         </activity>
+
+        <activity
+            android:name=".HomePage">
+
+        </activity>
+
     </application>
 
 </manifest>

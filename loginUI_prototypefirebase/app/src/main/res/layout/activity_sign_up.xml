@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mountain2"
+    android:background="@drawable/mountain3"
     android:gravity="center"
     android:orientation="horizontal"
     tools:context=".SignupActivity">
@@ -51,11 +51,14 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
-                android:drawableLeft="@drawable/ic_baseline_lock_24"
+                android:drawableLeft="@drawable/ic_baseline_lock_reset_24"
                 android:drawablePadding="8dp"
                 android:hint="Password"
+                android:inputType="textPassword"
+                android:password="true"
                 android:padding="8dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                tools:ignore="Deprecated" />
 
             <EditText
                 android:id="@+id/signup_name"

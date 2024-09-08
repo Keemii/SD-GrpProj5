@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,6 +45,10 @@ public class SignupActivity extends AppCompatActivity {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
         String name = nameET.getText().toString();
+
+        EditText editTextPassword = findViewById(R.id.signup_password);
+        editTextPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
 
         if (!email.isEmpty() && (!password.isEmpty())&&!name.isEmpty()) {
             if(db.checkUserEmailExist(email)==false) {
