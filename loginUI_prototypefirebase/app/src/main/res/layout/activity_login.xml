@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/pagebkg"
+    android:background="@drawable/mountain2"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -110,4 +110,5 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>
