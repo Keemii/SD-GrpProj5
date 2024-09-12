@@ -51,7 +51,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
         if (!email.isEmpty() && (!password.isEmpty())&&!name.isEmpty()) {
-            if(db.checkUserEmailExist(email)==false) {
+            if(db.checkUserEmailExists(email)==false) {
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putString("email", email);
                 editor.putInt("status", 0);

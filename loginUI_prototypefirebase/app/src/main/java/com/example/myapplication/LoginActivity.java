@@ -1,20 +1,18 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.content.Intent;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
-
-import android.widget.Toast;
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.api.ApiException;
@@ -23,7 +21,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.android.gms.common.SignInButton;
 
-
 public class LoginActivity extends AppCompatActivity {
     private EditText emailET, passwordET;
     private TextView signUpTV, forgotPassword;
@@ -31,7 +28,9 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private GoogleSignInOptions gOptions;
     private GoogleSignInClient gClient;
-    private SignInButton googleBtn; // Updated to use the correct Google Sign-In button
+    private SignInButton googleBtn;
+
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +57,15 @@ public class LoginActivity extends AppCompatActivity {
         googleBtn = findViewById(R.id.google_sign_in_button);
 
         // Check if the user is already logged in
-        SharedPreferences pref = getSharedPreferences("login_details", MODE_PRIVATE);
-        if (pref.getInt("status", -1) == 1) {
+        if (auth.getCurrentUser() != null) {
+            Log.d(TAG, "User already logged in, navigating to MainActivity");
             navigateToMainActivity();
         }
 
         // Set up click listeners
         loginBtn.setOnClickListener(v -> handleLogin());
         signUpTV.setOnClickListener(v -> signUp());
-        forgotPassword.setOnClickListener(v -> sendPasswordResetEmail());
+        forgotPassword.setOnClickListener(v -> showForgotPasswordDialog());
         googleBtn.setOnClickListener(v -> signInWithGoogle());
     }
 
@@ -75,22 +74,29 @@ public class LoginActivity extends AppCompatActivity {
         String password = passwordET.getText().toString();
 
         if (!email.isEmpty() && !password.isEmpty()) {
-            // Local password check (replace with Firebase Auth if possible)
-            DatabaseHandler db = new DatabaseHandler(this);
-            if (db.checkCorrectPassword(email, password)) {
-                SharedPreferences pref = getSharedPreferences("login_details", MODE_PRIVATE);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.putString("email", email);
-                editor.putInt("status", 1);
-                editor.apply();
-
-                navigateToMainActivity();
-            } else {
-                Toast.makeText(this, "Incorrect email or password", Toast.LENGTH_SHORT).show();
-            }
+            Log.d(TAG, "Attempting login with email: " + email);
+            auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Login successful");
+                            updateSharedPreferences(email);
+                            navigateToMainActivity();
+                        } else {
+                            Log.e(TAG, "Login failed", task.getException());
+                            Toast.makeText(this, "Incorrect email or password", Toast.LENGTH_SHORT).show();
+                        }
+                    });
         } else {
             Toast.makeText(this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void updateSharedPreferences(String email) {
+        SharedPreferences pref = getSharedPreferences("login_details", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("email", email);
+        editor.putInt("status", 1);
+        editor.apply();
     }
 
     private void navigateToMainActivity() {
@@ -105,23 +111,45 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void sendPasswordResetEmail() {
-        String email = emailET.getText().toString();
-        if (email.isEmpty()) {
-            Toast.makeText(this, "Enter your email", Toast.LENGTH_SHORT).show();
-            return;
-        }
+    private void showForgotPasswordDialog() {
+        androidx.appcompat.app.AlertDialog.Builder dialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(this);
+        final android.view.View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
+        dialogBuilder.setView(dialogView);
 
-        auth.sendPasswordResetEmail(email).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(LoginActivity.this, "Reset link sent to your email", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(LoginActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
+        final EditText emailBox = dialogView.findViewById(R.id.emailBox);
+        Button btnReset = dialogView.findViewById(R.id.btnReset);
+        Button btnCancel = dialogView.findViewById(R.id.btnCancel);
+
+        final androidx.appcompat.app.AlertDialog alertDialog = dialogBuilder.create();
+        alertDialog.show();
+
+        btnReset.setOnClickListener(v -> {
+            String email = emailBox.getText().toString().trim();
+            if (email.isEmpty()) {
+                Toast.makeText(LoginActivity.this, "Please enter your email", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(LoginActivity.this, "Please enter a valid email address", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this, "Password reset link sent to your email", Toast.LENGTH_SHORT).show();
+                    alertDialog.dismiss();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Failed to send reset email", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
+
+        btnCancel.setOnClickListener(v -> alertDialog.dismiss());
     }
 
     private void signInWithGoogle() {
+        Log.d(TAG, "Starting Google Sign-In");
         Intent signInIntent = gClient.getSignInIntent();
         startActivityForResult(signInIntent, 1001);
     }
@@ -135,22 +163,26 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 if (account != null) {
+                    Log.d(TAG, "Google Sign-In successful");
                     firebaseAuthWithGoogle(account);
                 }
             } catch (ApiException e) {
-                // Handle error
+                Log.e(TAG, "Google Sign-In failed", e);
                 Toast.makeText(this, "Google Sign-In failed", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        Log.d(TAG, "Authenticating with Firebase using Google account");
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         auth.signInWithCredential(credential).addOnCompleteListener(this, task -> {
             if (task.isSuccessful()) {
+                Log.d(TAG, "Firebase Authentication successful");
+                updateSharedPreferences(acct.getEmail());
                 navigateToMainActivity();
             } else {
-                // Handle error
+                Log.e(TAG, "Firebase Authentication failed", task.getException());
                 Toast.makeText(LoginActivity.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
             }
         });

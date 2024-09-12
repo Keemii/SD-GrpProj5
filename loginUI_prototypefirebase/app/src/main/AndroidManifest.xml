@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,36 +16,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
+        <!-- Login Activity -->
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+        <!-- Signup Activity -->
         <activity
             android:name=".SignupActivity"
-            android:exported="false">
-        </activity> <!-- Remove the intent-filter from MainActivity -->
+            android:exported="false" />
+
+        <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true"> <!-- Ensure this is set to true -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+    </activity>
 
-            <!-- Remove intent-filter here -->
-        </activity>
-
+        <!-- HomePage Activity -->
         <activity
-            android:name=".HomePage">
+            android:name=".HomePage" />
 
-        </activity>
+        <!-- Firebase API meta-data -->
         <meta-data
-            android:name="com.google.android.gms.auth.API_KEY"
-            android:value="@string/default_web_client_id" />
-
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <meta-data
-            android:name="com.google.android.gms.app.id"
+            android:name="com.google.android.gms.appinvite.legacyServerClientId"
             android:value="@string/default_web_client_id" />
 
     </application>
