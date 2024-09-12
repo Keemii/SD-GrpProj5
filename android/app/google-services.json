@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "420996664359",
+    "project_id": "fly-pro-dtexcj",
+    "storage_bucket": "fly-pro-dtexcj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420996664359:android:01537247421d4984f5d202",
+        "android_client_info": {
+          "package_name": "com.sdfyp.flyprof"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420996664359-ramqjc7cthgk0fru5jjbo8dnqqujlk0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sdfyp.flyprof",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "420996664359-hhn63g4rsj58ta1ih1k9icipnp7jjam2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCxz9kSlMKRERZRBFSe6jN-NdLlDwVws8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420996664359-hhn63g4rsj58ta1ih1k9icipnp7jjam2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "420996664359-7sbsvhrfmlvu7fak7272hl80c4c8ivs4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sdfyp.flyprof"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
