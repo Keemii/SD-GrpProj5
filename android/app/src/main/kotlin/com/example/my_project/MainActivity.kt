@@ -1,4 +1,4 @@
-package com.sdfyp.flyprof
+package com.mycompany.onboardingflow
 
 import io.flutter.embedding.android.FlutterActivity
 

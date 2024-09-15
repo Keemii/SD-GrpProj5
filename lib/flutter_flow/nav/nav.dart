@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -118,35 +119,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => PhoneVerifyWidget(),
             ),
             FFRoute(
-              name: 'homePage',
+              name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'homePage')
+                  ? NavBarPage(initialPage: 'HomePage')
                   : HomePageWidget(),
-            ),
-            FFRoute(
-              name: 'dashBoard',
-              path: 'dashBoard',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'dashBoard')
-                  : DashBoardWidget(),
-            ),
-            FFRoute(
-              name: 'settingPage',
-              path: 'settingPage',
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'settingPage')
-                  : SettingPageWidget(),
             ),
             FFRoute(
               name: 'profilePage',
               path: 'profilePage',
-              builder: (context, params) => ProfilePageWidget(),
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'profilePage')
+                  : ProfilePageWidget(),
             ),
             FFRoute(
-              name: 'forgotpasswordPage',
-              path: 'forgotpasswordPage',
-              builder: (context, params) => ForgotpasswordPageWidget(),
+              name: 'settingPage',
+              path: 'settingPage',
+              builder: (context, params) => SettingPageWidget(),
+            ),
+            FFRoute(
+              name: 'emailVerify',
+              path: 'emailVerify',
+              builder: (context, params) => EmailVerifyWidget(),
+            ),
+            FFRoute(
+              name: 'editProfile',
+              path: 'editProfile',
+              builder: (context, params) => EditProfileWidget(),
+            ),
+            FFRoute(
+              name: 'changePassword',
+              path: 'changePassword',
+              builder: (context, params) => ChangePasswordWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -333,15 +337,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? isWeb
-                  ? Container()
-                  : Container(
-                      color: Colors.transparent,
-                      child: Image.asset(
-                        'assets/images/lightmodelogo.png',
-                        fit: BoxFit.contain,
-                      ),
-                    )
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/splash_onboarding_01@3x.png',
+                    fit: BoxFit.cover,
+                  ),
+                )
               : page;
 
           final transitionInfo = state.transitionInfo;

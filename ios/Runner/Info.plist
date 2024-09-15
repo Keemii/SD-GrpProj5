@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>com.sdfyp.flypro</string>
+	<string>FlyPro</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,7 +28,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.420996664359-7sbsvhrfmlvu7fak7272hl80c4c8ivs4</string>
+                <string>com.googleusercontent.apps.379695783404-t6e7rfl3gfrb9r8089mekc9e9d6g3ies</string>
                 
             </array>
         </dict>

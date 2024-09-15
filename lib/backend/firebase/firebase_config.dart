@@ -5,12 +5,12 @@ Future initFirebase() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: FirebaseOptions(
-            apiKey: "AIzaSyDOdSpxP6ahN7SqH6b7L2AJTlLVN6M4R3c",
-            authDomain: "fly-pro-dtexcj.firebaseapp.com",
-            projectId: "fly-pro-dtexcj",
-            storageBucket: "fly-pro-dtexcj.appspot.com",
-            messagingSenderId: "420996664359",
-            appId: "1:420996664359:web:6a1f01a83099c676f5d202"));
+            apiKey: "AIzaSyDDZZuEdUg6PMLbtRAwTMgtqkT3asm-E7I",
+            authDomain: "fly-pro-asqtbr.firebaseapp.com",
+            projectId: "fly-pro-asqtbr",
+            storageBucket: "fly-pro-asqtbr.appspot.com",
+            messagingSenderId: "379695783404",
+            appId: "1:379695783404:web:cf55853873e12659cab4c9"));
   } else {
     await Firebase.initializeApp();
   }
