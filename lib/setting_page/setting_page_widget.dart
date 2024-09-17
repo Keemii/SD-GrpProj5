@@ -2,15 +2,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'setting_page_model.dart';
 export 'setting_page_model.dart';
 
@@ -43,8 +37,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(115.0, 0.0),
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(115.0, 0.0),
           ),
         ],
       ),
@@ -90,7 +84,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                   context.pop();
                 },
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 0.0,
             )
@@ -100,7 +94,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
             child: Text(
               'Settings Page',
               style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -110,7 +104,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 0.0),
             child: Text(
               'Please evaluate your options below.',
               style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -125,7 +119,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             scrollDirection: Axis.vertical,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -136,9 +130,9 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                   },
                   child: Container(
                     width: double.infinity,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -173,19 +167,19 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -209,12 +203,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -238,12 +232,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,12 +261,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 1.0),
                 child: Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(16.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -298,20 +292,20 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             ],
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
             child: Container(
               width: 389.0,
               height: 50.0,
               decoration: BoxDecoration(
-                color: Color(0xFFF1F4F8),
+                color: const Color(0xFFF1F4F8),
                 borderRadius: BorderRadius.circular(12.0),
                 border: Border.all(
-                  color: Color(0xFFE0E3E7),
+                  color: const Color(0xFFE0E3E7),
                   width: 1.0,
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.all(4.0),
+                padding: const EdgeInsets.all(4.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -332,14 +326,14 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                             color:
                                 Theme.of(context).brightness == Brightness.light
                                     ? Colors.white
-                                    : Color(0xFFF1F4F8),
+                                    : const Color(0xFFF1F4F8),
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 Theme.of(context).brightness == Brightness.light
-                                    ? Color(0xFFE0E3E7)
-                                    : Color(0xFFF1F4F8),
-                                Color(0xFFE0E3E7),
+                                    ? const Color(0xFFE0E3E7)
+                                    : const Color(0xFFF1F4F8),
+                                const Color(0xFFE0E3E7),
                               ),
                               width: 1.0,
                             ),
@@ -352,12 +346,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                 Icons.wb_sunny_rounded,
                                 color: Theme.of(context).brightness ==
                                         Brightness.light
-                                    ? Color(0xFF14181B)
-                                    : Color(0xFF57636C),
+                                    ? const Color(0xFF14181B)
+                                    : const Color(0xFF57636C),
                                 size: 16.0,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Light Mode',
@@ -367,8 +361,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                         fontFamily: 'Outfit',
                                         color: Theme.of(context).brightness ==
                                                 Brightness.light
-                                            ? Color(0xFF14181B)
-                                            : Color(0xFF57636C),
+                                            ? const Color(0xFF14181B)
+                                            : const Color(0xFF57636C),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -396,14 +390,14 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                             color:
                                 Theme.of(context).brightness == Brightness.dark
                                     ? Colors.white
-                                    : Color(0xFFF1F4F8),
+                                    : const Color(0xFFF1F4F8),
                             borderRadius: BorderRadius.circular(10.0),
                             border: Border.all(
                               color: valueOrDefault<Color>(
                                 Theme.of(context).brightness == Brightness.dark
-                                    ? Color(0xFFE0E3E7)
-                                    : Color(0xFFF1F4F8),
-                                Color(0xFFF1F4F8),
+                                    ? const Color(0xFFE0E3E7)
+                                    : const Color(0xFFF1F4F8),
+                                const Color(0xFFF1F4F8),
                               ),
                               width: 1.0,
                             ),
@@ -416,12 +410,12 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                 Icons.nightlight_round,
                                 color: Theme.of(context).brightness ==
                                         Brightness.dark
-                                    ? Color(0xFF14181B)
-                                    : Color(0xFF57636C),
+                                    ? const Color(0xFF14181B)
+                                    : const Color(0xFF57636C),
                                 size: 16.0,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     4.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   'Dark Mode',
@@ -431,8 +425,8 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                                         fontFamily: 'Outfit',
                                         color: Theme.of(context).brightness ==
                                                 Brightness.dark
-                                            ? Color(0xFF14181B)
-                                            : Color(0xFF57636C),
+                                            ? const Color(0xFF14181B)
+                                            : const Color(0xFF57636C),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -452,7 +446,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 0.0, 8.0),
             child: Text(
               'Follow us on',
               style: FlutterFlowTheme.of(context).labelMedium.override(
@@ -462,7 +456,7 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -526,11 +520,11 @@ class _SettingPageWidgetState extends State<SettingPageWidget>
                     print('IconButton pressed ...');
                   },
                 ),
-              ].divide(SizedBox(width: 8.0)),
+              ].divide(const SizedBox(width: 8.0)),
             ),
           ),
-          Spacer(),
-        ].addToEnd(SizedBox(height: 64.0)),
+          const Spacer(),
+        ].addToEnd(const SizedBox(height: 64.0)),
       ),
     );
   }
