@@ -12,5 +12,5 @@ export '/home_page/home_page/home_page_widget.dart' show HomePageWidget;
 export '/profile/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/setting_page/setting_page_widget.dart' show SettingPageWidget;
 export '/account/email_verify/email_verify_widget.dart' show EmailVerifyWidget;
-export '/change_password/change_password_widget.dart' show ChangePasswordWidget;
 export '/profile/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
+export '/change_password/change_password_widget.dart' show ChangePasswordWidget;

@@ -58,7 +58,8 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
   bool includeDimensions = false,
   bool includeBlurHash = false,
 }) async {
-  createUploadMediaListTile(String label, MediaSource mediaSource) => ListTile(
+  final createUploadMediaListTile =
+      (String label, MediaSource mediaSource) => ListTile(
             title: Text(
               label,
               textAlign: TextAlign.center,
@@ -85,7 +86,7 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
           children: [
             if (!kIsWeb) ...[
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                 child: ListTile(
                   title: Text(
                     'Choose Source',
@@ -298,7 +299,7 @@ List<SelectedFile> selectedFilesFromUploadedFiles(
         final file = entry.value;
         return SelectedFile(
             storagePath: _getStoragePath(
-              storageFolderPath,
+              storageFolderPath != null ? storageFolderPath : null,
               file.name!,
               false,
               isMultiData ? index : null,
@@ -359,7 +360,7 @@ void showUploadMessage(
           children: [
             if (showLoading)
               Padding(
-                padding: const EdgeInsetsDirectional.only(end: 10.0),
+                padding: EdgeInsetsDirectional.only(end: 10.0),
                 child: CircularProgressIndicator(
                   valueColor: Theme.of(context).brightness == Brightness.dark
                       ? AlwaysStoppedAnimation<Color>(
@@ -370,7 +371,7 @@ void showUploadMessage(
             Text(message),
           ],
         ),
-        duration: showLoading ? const Duration(days: 1) : const Duration(seconds: 4),
+        duration: showLoading ? Duration(days: 1) : Duration(seconds: 4),
       ),
     );
 }

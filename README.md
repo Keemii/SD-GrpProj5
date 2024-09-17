@@ -1,6 +1,6 @@
 # FlyPro
 
-Our Project SD.
+A new Flutter project.
 
 ## Getting Started
 

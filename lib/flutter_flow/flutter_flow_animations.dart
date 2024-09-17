@@ -37,9 +37,7 @@ void createAnimation(AnimationInfo animation, TickerProvider vsync) {
 }
 
 void setupAnimations(Iterable<AnimationInfo> animations, TickerProvider vsync) {
-  for (var animation in animations) {
-    createAnimation(animation, vsync);
-  }
+  animations.forEach((animation) => createAnimation(animation, vsync));
 }
 
 extension AnimatedWidgetExtension on Widget {
@@ -78,12 +76,15 @@ extension AnimatedWidgetExtension on Widget {
 
 class TiltEffect extends Effect<Offset> {
   const TiltEffect({
-    super.delay,
-    super.duration,
-    super.curve,
+    Duration? delay,
+    Duration? duration,
+    Curve? curve,
     Offset? begin,
     Offset? end,
   }) : super(
+          delay: delay,
+          duration: duration,
+          curve: curve,
           begin: begin ?? const Offset(0.0, 0.0),
           end: end ?? const Offset(0.0, 0.0),
         );

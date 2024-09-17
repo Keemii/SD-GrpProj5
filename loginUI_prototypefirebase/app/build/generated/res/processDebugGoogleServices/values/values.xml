@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">373563758597-4dv0ddalc87ud1ftidj681sk7uaikm5c.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">373563758597</string>
+    <string name="google_api_key" translatable="false">AIzaSyAOmB08CzSEu7kYFDuMrfl2yf5IqxF6Xcg</string>
+    <string name="google_app_id" translatable="false">1:373563758597:android:b7c610d39fe2f22740a46c</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAOmB08CzSEu7kYFDuMrfl2yf5IqxF6Xcg</string>
+    <string name="google_storage_bucket" translatable="false">flypro-e7f49.appspot.com</string>
+    <string name="project_id" translatable="false">flypro-e7f49</string>
+</resources>

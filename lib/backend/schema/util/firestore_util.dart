@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:from_css_color/from_css_color.dart';
 
 import '/backend/schema/util/schema_util.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -15,7 +17,7 @@ abstract class FFFirebaseStruct extends BaseStruct {
   FFFirebaseStruct(this.firestoreUtilData);
 
   /// Utility class for Firestore updates
-  FirestoreUtilData firestoreUtilData = const FirestoreUtilData();
+  FirestoreUtilData firestoreUtilData = FirestoreUtilData();
 }
 
 class FirestoreUtilData {
@@ -123,7 +125,7 @@ Map<String, dynamic> mergeNestedFields(Map<String, dynamic> data) {
   final fieldNames = nestedData.keys.map((k) => k.split('.').first).toSet();
   // Remove nested values (e.g. 'foo.bar') and merge them into a map.
   data.removeWhere((k, _) => k.contains('.'));
-  for (var name in fieldNames) {
+  fieldNames.forEach((name) {
     final mergedValues = mergeNestedFields(
       nestedData
           .where((k, _) => k.split('.').first == name)
@@ -135,7 +137,7 @@ Map<String, dynamic> mergeNestedFields(Map<String, dynamic> data) {
         ...existingValue as Map<String, dynamic>,
       ...mergedValues,
     };
-  }
+  });
   // Merge any nested maps inside any of the fields as well.
   data.where((_, v) => v is Map).forEach((k, v) {
     data[k] = mergeNestedFields(v as Map<String, dynamic>);

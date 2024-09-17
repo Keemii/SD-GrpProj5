@@ -1,13 +1,21 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -72,77 +80,77 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const SignInWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : SignInWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const SignInWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : SignInWidget(),
           routes: [
             FFRoute(
               name: 'signIn',
               path: 'signIn',
-              builder: (context, params) => const SignInWidget(),
+              builder: (context, params) => SignInWidget(),
             ),
             FFRoute(
               name: 'signUp',
               path: 'signUp',
-              builder: (context, params) => const SignUpWidget(),
+              builder: (context, params) => SignUpWidget(),
             ),
             FFRoute(
               name: 'createProfile',
               path: 'createProfile',
-              builder: (context, params) => const CreateProfileWidget(),
+              builder: (context, params) => CreateProfileWidget(),
             ),
             FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
-              builder: (context, params) => const PhoneSignInWidget(),
+              builder: (context, params) => PhoneSignInWidget(),
             ),
             FFRoute(
               name: 'forgotPassword',
               path: 'forgotPassword',
-              builder: (context, params) => const ForgotPasswordWidget(),
+              builder: (context, params) => ForgotPasswordWidget(),
             ),
             FFRoute(
               name: 'phoneVerify',
               path: 'phoneVerify',
-              builder: (context, params) => const PhoneVerifyWidget(),
+              builder: (context, params) => PhoneVerifyWidget(),
             ),
             FFRoute(
               name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'HomePage')
-                  : const HomePageWidget(),
+                  ? NavBarPage(initialPage: 'HomePage')
+                  : HomePageWidget(),
             ),
             FFRoute(
               name: 'profilePage',
               path: 'profilePage',
               builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'profilePage')
-                  : const ProfilePageWidget(),
+                  ? NavBarPage(initialPage: 'profilePage')
+                  : ProfilePageWidget(),
             ),
             FFRoute(
               name: 'settingPage',
               path: 'settingPage',
-              builder: (context, params) => const SettingPageWidget(),
+              builder: (context, params) => SettingPageWidget(),
             ),
             FFRoute(
               name: 'emailVerify',
               path: 'emailVerify',
-              builder: (context, params) => const EmailVerifyWidget(),
-            ),
-            FFRoute(
-              name: 'changePassword',
-              path: 'changePassword',
-              builder: (context, params) => const ChangePasswordWidget(),
+              builder: (context, params) => EmailVerifyWidget(),
             ),
             FFRoute(
               name: 'editProfile',
               path: 'editProfile',
-              builder: (context, params) => const EditProfileWidget(),
+              builder: (context, params) => EditProfileWidget(),
+            ),
+            FFRoute(
+              name: 'changePassword',
+              path: 'changePassword',
+              builder: (context, params) => ChangePasswordWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -332,7 +340,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/lightmodelogo.png',
+                    'assets/images/splash_onboarding_01@3x.png',
                     fit: BoxFit.cover,
                   ),
                 )
@@ -378,7 +386,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {
