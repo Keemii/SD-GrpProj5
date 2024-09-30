@@ -1,21 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import '/backend/backend.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -80,77 +72,111 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : SignInWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const SignInWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : SignInWidget(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const SignInWidget(),
           routes: [
             FFRoute(
               name: 'signIn',
               path: 'signIn',
-              builder: (context, params) => SignInWidget(),
+              builder: (context, params) => const SignInWidget(),
             ),
             FFRoute(
               name: 'signUp',
               path: 'signUp',
-              builder: (context, params) => SignUpWidget(),
+              builder: (context, params) => const SignUpWidget(),
             ),
             FFRoute(
               name: 'createProfile',
               path: 'createProfile',
-              builder: (context, params) => CreateProfileWidget(),
+              builder: (context, params) => const CreateProfileWidget(),
             ),
             FFRoute(
               name: 'phoneSignIn',
               path: 'phoneSignIn',
-              builder: (context, params) => PhoneSignInWidget(),
+              builder: (context, params) => const PhoneSignInWidget(),
             ),
             FFRoute(
               name: 'forgotPassword',
               path: 'forgotPassword',
-              builder: (context, params) => ForgotPasswordWidget(),
+              builder: (context, params) => const ForgotPasswordWidget(),
             ),
             FFRoute(
               name: 'phoneVerify',
               path: 'phoneVerify',
-              builder: (context, params) => PhoneVerifyWidget(),
+              builder: (context, params) => const PhoneVerifyWidget(),
             ),
             FFRoute(
               name: 'HomePage',
               path: 'homePage',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'HomePage')
-                  : HomePageWidget(),
+                  ? const NavBarPage(initialPage: 'HomePage')
+                  : const HomePageWidget(),
             ),
             FFRoute(
               name: 'profilePage',
               path: 'profilePage',
               builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'profilePage')
-                  : ProfilePageWidget(),
+                  ? const NavBarPage(initialPage: 'profilePage')
+                  : const ProfilePageWidget(),
             ),
             FFRoute(
               name: 'settingPage',
               path: 'settingPage',
-              builder: (context, params) => SettingPageWidget(),
+              builder: (context, params) => const SettingPageWidget(),
             ),
             FFRoute(
               name: 'emailVerify',
               path: 'emailVerify',
-              builder: (context, params) => EmailVerifyWidget(),
-            ),
-            FFRoute(
-              name: 'editProfile',
-              path: 'editProfile',
-              builder: (context, params) => EditProfileWidget(),
+              builder: (context, params) => const EmailVerifyWidget(),
             ),
             FFRoute(
               name: 'changePassword',
               path: 'changePassword',
-              builder: (context, params) => ChangePasswordWidget(),
+              builder: (context, params) => const ChangePasswordWidget(),
+            ),
+            FFRoute(
+              name: 'editProfile',
+              path: 'editProfile',
+              builder: (context, params) => const EditProfileWidget(),
+            ),
+            FFRoute(
+              name: 'accountprofilePage',
+              path: 'accountprofilePage',
+              builder: (context, params) => const AccountprofilePageWidget(),
+            ),
+            FFRoute(
+              name: 'aboutUsPage',
+              path: 'aboutUsPage',
+              builder: (context, params) => const AboutUsPageWidget(),
+            ),
+            FFRoute(
+              name: 'testsetting',
+              path: 'testsetting',
+              builder: (context, params) => const TestsettingWidget(),
+            ),
+            FFRoute(
+              name: 'MyTeam_Admin',
+              path: 'myTeamAdmin',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'MyTeam_Admin')
+                  : const MyTeamAdminWidget(),
+            ),
+            FFRoute(
+              name: 'testloadinghomepage',
+              path: 'testloadinghomepage',
+              builder: (context, params) => const TestloadinghomepageWidget(),
+            ),
+            FFRoute(
+              name: 'User_Admin',
+              path: 'userAdmin',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'User_Admin')
+                  : const UserAdminWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -340,7 +366,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/splash_onboarding_01@3x.png',
+                    'assets/images/lightmodelogo.png',
                     fit: BoxFit.cover,
                   ),
                 )
@@ -386,7 +412,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

@@ -8,11 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_profile_model.dart';
 export 'create_profile_model.dart';
 
@@ -33,14 +29,16 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
     super.initState();
     _model = createModel(context, () => CreateProfileModel());
 
-    _model.yourNameTextController ??= TextEditingController();
-    _model.yourNameFocusNode ??= FocusNode();
+    _model.yourNameCreateTextController ??= TextEditingController();
+    _model.yourNameCreateFocusNode ??= FocusNode();
 
-    _model.cityTextController ??= TextEditingController();
-    _model.cityFocusNode ??= FocusNode();
+    _model.yourCityTextController ??= TextEditingController();
+    _model.yourCityFocusNode ??= FocusNode();
 
-    _model.myBioTextController ??= TextEditingController();
-    _model.myBioFocusNode ??= FocusNode();
+    _model.yourBioTextController ??= TextEditingController();
+    _model.yourBioFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -70,7 +68,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 0.0,
             )
@@ -78,13 +76,13 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
       body: SafeArea(
         top: true,
         child: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
                 width: double.infinity,
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 570.0,
                 ),
                 decoration: BoxDecoration(
@@ -99,7 +97,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                       tablet: false,
                     ))
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 44.0, 16.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -118,7 +116,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                       ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 16.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 16.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -204,22 +202,20 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(2.0),
                                 child: Container(
                                   width: 90.0,
                                   height: 90.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: CachedNetworkImage(
-                                    fadeInDuration: Duration(milliseconds: 500),
+                                    fadeInDuration: const Duration(milliseconds: 500),
                                     fadeOutDuration:
-                                        Duration(milliseconds: 500),
-                                    imageUrl: valueOrDefault<String>(
-                                      _model.uploadedFileUrl,
-                                      'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/workout-web-app-manager-m1j9am/assets/v2bacnnrcrpc/addAvatarImage@2x.png',
-                                    ),
+                                        const Duration(milliseconds: 500),
+                                    imageUrl:
+                                        'https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80',
                                     fit: BoxFit.fitWidth,
                                   ),
                                 ),
@@ -231,10 +227,10 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                       child: TextFormField(
-                        controller: _model.yourNameTextController,
-                        focusNode: _model.yourNameFocusNode,
+                        controller: _model.yourNameCreateTextController,
+                        focusNode: _model.yourNameCreateFocusNode,
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -280,7 +276,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           filled: true,
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -288,16 +284,16 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                               letterSpacing: 0.0,
                             ),
                         cursorColor: FlutterFlowTheme.of(context).secondary,
-                        validator: _model.yourNameTextControllerValidator
+                        validator: _model.yourNameCreateTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                       child: TextFormField(
-                        controller: _model.cityTextController,
-                        focusNode: _model.cityFocusNode,
+                        controller: _model.yourCityTextController,
+                        focusNode: _model.yourCityFocusNode,
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -343,7 +339,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           filled: true,
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -351,73 +347,36 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                               letterSpacing: 0.0,
                             ),
                         cursorColor: FlutterFlowTheme.of(context).secondary,
-                        validator: _model.cityTextControllerValidator
+                        validator: _model.yourCityTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                       child: FlutterFlowDropDown<String>(
-                        controller: _model.stateValueController ??=
+                        controller: _model.yourStateValueController ??=
                             FormFieldController<String>(
-                          _model.stateValue ??= 'State',
+                          _model.yourStateValue ??= 'State',
                         ),
-                        options: [
-                          'State',
-                          'Alabama',
-                          'Alaska',
-                          'Arizona',
-                          'Arkansas',
-                          'California',
-                          'Colorado',
-                          'Connecticut',
-                          'Delaware',
-                          'Florida',
-                          'Georgia',
-                          'Hawaii',
-                          'Idaho',
-                          'Illinoi',
-                          'Indiana',
-                          'Iowa',
-                          'Kansas',
-                          'Kentucky',
-                          'Louisiana',
-                          'Maine',
-                          'Maryland',
-                          'Massachusetts',
-                          'Michigan',
-                          'Minnesota',
-                          'Mississippi',
-                          'Missouri',
-                          'Monta',
-                          'Nebraska',
-                          'Nevada',
-                          'New Hampshire',
-                          'New Jersey',
-                          'New Mexico',
-                          'New York',
-                          'North Carolina',
-                          'North Dak',
-                          'Ohio',
-                          'Oklahoma',
-                          'Oregon',
-                          'Pennsylvani',
-                          'Rhode Island',
-                          'South Caroli',
-                          'South Dakota',
-                          'Tennessee',
-                          'Texas',
-                          'Utah',
-                          'Vermont',
-                          'Virginia',
-                          'Washingto',
-                          'West Virginia',
-                          'Wisconsin',
-                          'Wyoming'
+                        options: const [
+                          'Johor',
+                          'Melaka',
+                          'Pahang',
+                          'Negeri Sembilan',
+                          'Selangor',
+                          'Perak',
+                          'Terengganu',
+                          'Kelantan',
+                          'Pulau Pinang',
+                          'Kedah',
+                          'Perlis',
+                          'Sabah',
+                          'Sarawak',
+                          'Wilayah Persekutuan'
                         ],
                         onChanged: (val) =>
-                            safeSetState(() => _model.stateValue = val),
+                            safeSetState(() => _model.yourStateValue = val),
                         width: double.infinity,
                         height: 56.0,
                         textStyle:
@@ -437,7 +396,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                         borderColor: FlutterFlowTheme.of(context).alternate,
                         borderWidth: 2.0,
                         borderRadius: 8.0,
-                        margin: EdgeInsetsDirectional.fromSTEB(
+                        margin: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 4.0, 12.0, 4.0),
                         hidesUnderline: true,
                         isSearchable: false,
@@ -446,14 +405,13 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 0.0),
                       child: TextFormField(
-                        controller: _model.myBioTextController,
-                        focusNode: _model.myBioFocusNode,
+                        controller: _model.yourBioTextController,
+                        focusNode: _model.yourBioFocusNode,
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Email address',
                           labelStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Plus Jakarta Sans',
@@ -496,7 +454,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           filled: true,
                           fillColor:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -504,24 +462,25 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                               letterSpacing: 0.0,
                             ),
                         cursorColor: FlutterFlowTheme.of(context).secondary,
-                        validator: _model.myBioTextControllerValidator
+                        validator: _model.yourBioTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.05),
+                      alignment: const AlignmentDirectional(0.0, 0.05),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             await currentUserReference!
                                 .update(createUsersRecordData(
-                              displayName: _model.yourNameTextController.text,
+                              displayName:
+                                  _model.yourNameCreateTextController.text,
                               photoUrl: _model.uploadedFileUrl,
-                              state: _model.stateValue,
-                              bio: _model.myBioTextController.text,
-                              city: _model.cityTextController.text,
+                              state: _model.yourStateValue,
+                              bio: _model.yourBioTextController.text,
+                              city: _model.yourCityTextController.text,
                             ));
 
                             context.pushNamed('HomePage');
@@ -529,9 +488,9 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                           text: 'Save Changes',
                           options: FFButtonOptions(
                             height: 48.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 44.0, 0.0, 44.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -541,7 +500,7 @@ class _CreateProfileWidgetState extends State<CreateProfileWidget> {
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

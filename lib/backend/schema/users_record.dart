@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -61,6 +60,11 @@ class UsersRecord extends FirestoreRecord {
   String get city => _city ?? '';
   bool hasCity() => _city != null;
 
+  // "role" field.
+  String? _role;
+  String get role => _role ?? '';
+  bool hasRole() => _role != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -71,6 +75,7 @@ class UsersRecord extends FirestoreRecord {
     _state = snapshotData['state'] as String?;
     _bio = snapshotData['bio'] as String?;
     _city = snapshotData['city'] as String?;
+    _role = snapshotData['role'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +121,7 @@ Map<String, dynamic> createUsersRecordData({
   String? state,
   String? bio,
   String? city,
+  String? role,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -128,6 +134,7 @@ Map<String, dynamic> createUsersRecordData({
       'state': state,
       'bio': bio,
       'city': city,
+      'role': role,
     }.withoutNulls,
   );
 
@@ -147,7 +154,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.state == e2?.state &&
         e1?.bio == e2?.bio &&
-        e1?.city == e2?.city;
+        e1?.city == e2?.city &&
+        e1?.role == e2?.role;
   }
 
   @override
@@ -160,7 +168,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.phoneNumber,
         e?.state,
         e?.bio,
-        e?.city
+        e?.city,
+        e?.role
       ]);
 
   @override
