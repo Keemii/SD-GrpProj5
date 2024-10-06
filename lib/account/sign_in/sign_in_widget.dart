@@ -1,9 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'sign_in_model.dart';
@@ -400,8 +402,27 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         return;
                                       }
 
-                                      context.goNamedAuth(
-                                          'HomePage', context.mounted);
+                                      await queryUsersRecordOnce(
+                                        singleRecord: true,
+                                      ).then((s) => s.firstOrNull);
+                                      if (valueOrDefault(
+                                                  currentUserDocument?.role,
+                                                  '') ==
+                                              'Admin'
+                                          ? (valueOrDefault(
+                                                  currentUserDocument?.role,
+                                                  '') ==
+                                              'Admin')
+                                          : (valueOrDefault(
+                                                  currentUserDocument?.role,
+                                                  '') !=
+                                              'Admin')) {
+                                        context.pushNamedAuth(
+                                            'myTeamAdminPage', context.mounted);
+                                      } else {
+                                        context.pushNamedAuth(
+                                            'HomePage', context.mounted);
+                                      }
                                     },
                                     text: 'Sign In',
                                     options: FFButtonOptions(

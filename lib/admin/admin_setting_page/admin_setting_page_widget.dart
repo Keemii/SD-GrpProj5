@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,19 +9,19 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'testsetting_model.dart';
-export 'testsetting_model.dart';
+import 'admin_setting_page_model.dart';
+export 'admin_setting_page_model.dart';
 
-class TestsettingWidget extends StatefulWidget {
-  const TestsettingWidget({super.key});
+class AdminSettingPageWidget extends StatefulWidget {
+  const AdminSettingPageWidget({super.key});
 
   @override
-  State<TestsettingWidget> createState() => _TestsettingWidgetState();
+  State<AdminSettingPageWidget> createState() => _AdminSettingPageWidgetState();
 }
 
-class _TestsettingWidgetState extends State<TestsettingWidget>
+class _AdminSettingPageWidgetState extends State<AdminSettingPageWidget>
     with TickerProviderStateMixin {
-  late TestsettingModel _model;
+  late AdminSettingPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   var hasContainerTriggered1 = false;
@@ -32,7 +33,7 @@ class _TestsettingWidgetState extends State<TestsettingWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TestsettingModel());
+    _model = createModel(context, () => AdminSettingPageModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -642,7 +643,7 @@ class _TestsettingWidgetState extends State<TestsettingWidget>
                                               borderRadius:
                                                   BorderRadius.circular(0.0),
                                               child: Image.asset(
-                                                'assets/images/medium-logo.png',
+                                                'assets/images/lightmodelogo1.png',
                                                 width: 60.0,
                                                 height: 60.0,
                                                 fit: BoxFit.cover,
@@ -1077,25 +1078,60 @@ class _TestsettingWidgetState extends State<TestsettingWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Icon(
-                                            Icons.logout_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .error,
-                                            size: 24.0,
-                                          ),
-                                          Text(
-                                            'Log Out',
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      'Plus Jakarta Sans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              GoRouter.of(context)
+                                                  .prepareAuthEvent();
+                                              await authManager.signOut();
+                                              GoRouter.of(context)
+                                                  .clearRedirectLocation();
+
+                                              context.goNamedAuth(
+                                                  'signIn', context.mounted);
+                                            },
+                                            child: Icon(
+                                              Icons.logout_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
                                                       .error,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                              size: 24.0,
+                                            ),
+                                          ),
+                                          InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              GoRouter.of(context)
+                                                  .prepareAuthEvent();
+                                              await authManager.signOut();
+                                              GoRouter.of(context)
+                                                  .clearRedirectLocation();
+
+                                              context.goNamedAuth(
+                                                  'signIn', context.mounted);
+                                            },
+                                            child: Text(
+                                              'Log Out',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -2953,7 +2989,7 @@ class _TestsettingWidgetState extends State<TestsettingWidget>
                                         borderRadius:
                                             BorderRadius.circular(0.0),
                                         child: Image.asset(
-                                          'assets/images/medium-logo.png',
+                                          'assets/images/lightmodelogo1.png',
                                           width: 60.0,
                                           height: 60.0,
                                           fit: BoxFit.cover,

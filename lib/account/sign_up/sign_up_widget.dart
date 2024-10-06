@@ -679,15 +679,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                               alignment: const AlignmentDirectional(0.0, -1.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  GoRouter.of(context).prepareAuthEvent();
-                                  final user = await authManager
-                                      .signInAnonymously(context);
-                                  if (user == null) {
-                                    return;
-                                  }
-
-                                  context.goNamedAuth(
-                                      'HomePage', context.mounted);
+                                  context.pushNamed('HomePage');
                                 },
                                 text: 'Continue as Guest',
                                 options: FFButtonOptions(

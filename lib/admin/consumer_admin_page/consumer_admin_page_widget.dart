@@ -7,19 +7,20 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'my_team_admin_model.dart';
-export 'my_team_admin_model.dart';
+import 'consumer_admin_page_model.dart';
+export 'consumer_admin_page_model.dart';
 
-class MyTeamAdminWidget extends StatefulWidget {
-  const MyTeamAdminWidget({super.key});
+class ConsumerAdminPageWidget extends StatefulWidget {
+  const ConsumerAdminPageWidget({super.key});
 
   @override
-  State<MyTeamAdminWidget> createState() => _MyTeamAdminWidgetState();
+  State<ConsumerAdminPageWidget> createState() =>
+      _ConsumerAdminPageWidgetState();
 }
 
-class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
+class _ConsumerAdminPageWidgetState extends State<ConsumerAdminPageWidget>
     with TickerProviderStateMixin {
-  late MyTeamAdminModel _model;
+  late ConsumerAdminPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -28,7 +29,7 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => MyTeamAdminModel());
+    _model = createModel(context, () => ConsumerAdminPageModel());
 
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
@@ -268,42 +269,52 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 12.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.groups,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 28.0,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'My Team',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .override(
-                                                  fontFamily:
-                                                      'Plus Jakarta Sans',
-                                                  letterSpacing: 0.0,
-                                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('myTeamAdminPage');
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.groups,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 28.0,
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'My Team',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -311,42 +322,52 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 12.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.business_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 28.0,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            'User',
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .override(
-                                                  fontFamily:
-                                                      'Plus Jakarta Sans',
-                                                  letterSpacing: 0.0,
-                                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('consumerAdminPage');
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.business_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryText,
+                                            size: 28.0,
                                           ),
-                                        ),
-                                      ],
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Consumer',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -564,7 +585,7 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 16.0, 0.0, 16.0),
                                       child: Text(
-                                        'My Team',
+                                        'Users',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .displaySmall
@@ -681,7 +702,7 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                                               ))
                                                 Expanded(
                                                   child: Text(
-                                                    'Last Active',
+                                                    'Drone Type\n',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
@@ -699,7 +720,7 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                                               ))
                                                 Expanded(
                                                   child: Text(
-                                                    'Role',
+                                                    'Date Created',
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .labelMedium
@@ -2540,7 +2561,7 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                                                                   .start,
                                                           children: [
                                                             AutoSizeText(
-                                                              'nabil Roti',
+                                                              'try',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
                                                                   .bodyLarge
@@ -2632,7 +2653,8 @@ class _MyTeamAdminWidgetState extends State<MyTeamAdminWidget>
                                                   ))
                                                     Expanded(
                                                       child: Text(
-                                                        'Programmer',
+                                                        dateTimeFormat("yMMMd",
+                                                            getCurrentTimestamp),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

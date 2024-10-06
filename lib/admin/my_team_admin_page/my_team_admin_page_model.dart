@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'my_team_admin_widget.dart' show MyTeamAdminWidget;
+import 'my_team_admin_page_widget.dart' show MyTeamAdminPageWidget;
 import 'package:flutter/material.dart';
 
-class MyTeamAdminModel extends FlutterFlowModel<MyTeamAdminWidget> {
+class MyTeamAdminPageModel extends FlutterFlowModel<MyTeamAdminPageWidget> {
   @override
   void initState(BuildContext context) {}
 

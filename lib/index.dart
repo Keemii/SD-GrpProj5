@@ -19,8 +19,13 @@ export '/profile/accountprofile_page/accountprofile_page_widget.dart'
     show AccountprofilePageWidget;
 export '/about_us/about_us_page/about_us_page_widget.dart'
     show AboutUsPageWidget;
-export '/custom/testsetting/testsetting_widget.dart' show TestsettingWidget;
-export '/admin/my_team_admin/my_team_admin_widget.dart' show MyTeamAdminWidget;
+export '/admin/admin_setting_page/admin_setting_page_widget.dart'
+    show AdminSettingPageWidget;
+export '/admin/my_team_admin_page/my_team_admin_page_widget.dart'
+    show MyTeamAdminPageWidget;
 export '/loading/testloadinghomepage/testloadinghomepage_widget.dart'
     show TestloadinghomepageWidget;
-export '/admin/user_admin/user_admin_widget.dart' show UserAdminWidget;
+export '/admin/consumer_admin_page/consumer_admin_page_widget.dart'
+    show ConsumerAdminPageWidget;
+export '/admin/account_profile_admin_page/account_profile_admin_page_widget.dart'
+    show AccountProfileAdminPageWidget;

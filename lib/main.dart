@@ -122,8 +122,6 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': const HomePageWidget(),
       'profilePage': const ProfilePageWidget(),
-      'MyTeam_Admin': const MyTeamAdminWidget(),
-      'User_Admin': const UserAdminWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -156,30 +154,6 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 24.0,
             ),
             label: '•',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.accessible_forward_sharp,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.accessible_forward_sharp,
-              size: 24.0,
-            ),
-            label: 'Admin Dashboard',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.accessible_forward_sharp,
-              size: 24.0,
-            ),
-            activeIcon: Icon(
-              Icons.accessibility_new_sharp,
-              size: 24.0,
-            ),
-            label: 'User Dashboard',
             tooltip: '',
           )
         ],

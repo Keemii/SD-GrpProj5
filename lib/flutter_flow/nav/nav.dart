@@ -155,16 +155,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const AboutUsPageWidget(),
             ),
             FFRoute(
-              name: 'testsetting',
-              path: 'testsetting',
-              builder: (context, params) => const TestsettingWidget(),
+              name: 'adminSettingPage',
+              path: 'adminSettingPage',
+              builder: (context, params) => const AdminSettingPageWidget(),
             ),
             FFRoute(
-              name: 'MyTeam_Admin',
-              path: 'myTeamAdmin',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'MyTeam_Admin')
-                  : const MyTeamAdminWidget(),
+              name: 'myTeamAdminPage',
+              path: 'myTeamAdminPage',
+              builder: (context, params) => const MyTeamAdminPageWidget(),
             ),
             FFRoute(
               name: 'testloadinghomepage',
@@ -172,11 +170,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const TestloadinghomepageWidget(),
             ),
             FFRoute(
-              name: 'User_Admin',
-              path: 'userAdmin',
-              builder: (context, params) => params.isEmpty
-                  ? const NavBarPage(initialPage: 'User_Admin')
-                  : const UserAdminWidget(),
+              name: 'consumerAdminPage',
+              path: 'consumerAdminPage',
+              builder: (context, params) => const ConsumerAdminPageWidget(),
+            ),
+            FFRoute(
+              name: 'accountProfileAdminPage',
+              path: 'accountProfileAdminPage',
+              builder: (context, params) => const AccountProfileAdminPageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

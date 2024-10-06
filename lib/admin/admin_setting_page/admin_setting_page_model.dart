@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'testsetting_widget.dart' show TestsettingWidget;
+import 'admin_setting_page_widget.dart' show AdminSettingPageWidget;
 import 'package:flutter/material.dart';
 
-class TestsettingModel extends FlutterFlowModel<TestsettingWidget> {
+class AdminSettingPageModel extends FlutterFlowModel<AdminSettingPageWidget> {
   ///  Local state fields for this page.
 
   String activeTab = 'general';
