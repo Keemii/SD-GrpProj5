@@ -170,9 +170,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => const TestloadinghomepageWidget(),
             ),
             FFRoute(
-              name: 'consumerAdminPage',
-              path: 'consumerAdminPage',
-              builder: (context, params) => const ConsumerAdminPageWidget(),
+              name: 'userAdminPage',
+              path: 'userAdminPage',
+              builder: (context, params) => const UserAdminPageWidget(),
             ),
             FFRoute(
               name: 'accountProfileAdminPage',

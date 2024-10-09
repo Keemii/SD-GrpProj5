@@ -408,15 +408,20 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       if (valueOrDefault(
                                                   currentUserDocument?.role,
                                                   '') ==
-                                              'Admin'
+                                              'admin'
                                           ? (valueOrDefault(
                                                   currentUserDocument?.role,
                                                   '') ==
-                                              'Admin')
+                                              'admin')
                                           : (valueOrDefault(
                                                   currentUserDocument?.role,
                                                   '') !=
-                                              'Admin')) {
+                                              valueOrDefault<String>(
+                                                valueOrDefault(
+                                                    currentUserDocument?.role,
+                                                    ''),
+                                                'admin',
+                                              ))) {
                                         context.pushNamedAuth(
                                             'myTeamAdminPage', context.mounted);
                                       } else {

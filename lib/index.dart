@@ -25,7 +25,7 @@ export '/admin/my_team_admin_page/my_team_admin_page_widget.dart'
     show MyTeamAdminPageWidget;
 export '/loading/testloadinghomepage/testloadinghomepage_widget.dart'
     show TestloadinghomepageWidget;
-export '/admin/consumer_admin_page/consumer_admin_page_widget.dart'
-    show ConsumerAdminPageWidget;
+export '/admin/user_admin_page/user_admin_page_widget.dart'
+    show UserAdminPageWidget;
 export '/admin/account_profile_admin_page/account_profile_admin_page_widget.dart'
     show AccountProfileAdminPageWidget;

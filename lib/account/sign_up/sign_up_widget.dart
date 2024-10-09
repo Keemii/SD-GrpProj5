@@ -479,14 +479,6 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                         context.pushNamedAuth(
                                             'emailVerify', context.mounted);
                                       }
-
-                                      if (valueOrDefault(
-                                              currentUserDocument?.role, '') ==
-                                          '') {
-                                        context.pushNamedAuth(
-                                            'accountprofilePage',
-                                            context.mounted);
-                                      }
                                     },
                                     text: 'Sign Up',
                                     options: FFButtonOptions(

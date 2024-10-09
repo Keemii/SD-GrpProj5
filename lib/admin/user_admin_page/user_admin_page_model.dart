@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'consumer_admin_page_widget.dart' show ConsumerAdminPageWidget;
+import 'user_admin_page_widget.dart' show UserAdminPageWidget;
 import 'package:flutter/material.dart';
 
-class ConsumerAdminPageModel extends FlutterFlowModel<ConsumerAdminPageWidget> {
+class UserAdminPageModel extends FlutterFlowModel<UserAdminPageWidget> {
   @override
   void initState(BuildContext context) {}
 
