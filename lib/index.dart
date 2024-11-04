@@ -29,3 +29,5 @@ export '/admin/user_admin_page/user_admin_page_widget.dart'
     show UserAdminPageWidget;
 export '/admin/account_profile_admin_page/account_profile_admin_page_widget.dart'
     show AccountProfileAdminPageWidget;
+export '/home_page/home_page_copy/home_page_copy_widget.dart'
+    show HomePageCopyWidget;

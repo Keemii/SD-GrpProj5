@@ -303,7 +303,8 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
           : (isMultiSelect ? (_) {} : (val) => widget.controller!.value = val),
       isExpanded: true,
       selectedItemBuilder: (context) => widget.options
-          .map((item) => Align(
+          .map(
+            (item) => Align(
                 alignment: AlignmentDirectional.centerStart,
                 child: Text(
                   isMultiSelect
@@ -314,8 +315,8 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
                       : optionLabels[item]!,
                   style: widget.textStyle,
                   maxLines: 1,
-                ),
-              ))
+                )),
+          )
           .toList(),
       dropdownSearchData: widget.isSearchable
           ? DropdownSearchData<T>(

@@ -1,43 +1,26 @@
 {
   "project_info": {
-    "project_number": "379695783404",
-    "project_id": "fly-pro-asqtbr",
-    "storage_bucket": "fly-pro-asqtbr.appspot.com"
+    "project_number": "508183339408",
+    "project_id": "flypro-360a0",
+    "storage_bucket": "flypro-360a0.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:379695783404:android:64cfde8927952b52cab4c9",
+        "mobilesdk_app_id": "1:508183339408:android:926cfd60e0546cd3649315",
         "android_client_info": {
-          "package_name": "com.mycompany.onboardingflow"
+          "package_name": "com.flypro.sdprojectfypgroup5"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "379695783404-lea6d1i630ghvvpkljc7lg7tb7l77n0j.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBXTk5yPqavWNGkgLcLZh3x01ULFPgw97s"
+          "current_key": "AIzaSyAYxnvnCUj67JbqG2CJUBUhq78apfTTMNo"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "379695783404-lea6d1i630ghvvpkljc7lg7tb7l77n0j.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "379695783404-t6e7rfl3gfrb9r8089mekc9e9d6g3ies.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mycompany.onboardingflow"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

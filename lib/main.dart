@@ -123,6 +123,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomePage': const HomePageWidget(),
       'profilePage': const ProfilePageWidget(),
+      'HomePageCopy': const HomePageCopyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -152,6 +153,14 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.account_circle_outlined,
+              size: 24.0,
+            ),
+            label: '•',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_business_rounded,
               size: 24.0,
             ),
             label: '•',

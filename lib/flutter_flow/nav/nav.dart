@@ -178,6 +178,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'accountProfileAdminPage',
               path: 'accountProfileAdminPage',
               builder: (context, params) => const AccountProfileAdminPageWidget(),
+            ),
+            FFRoute(
+              name: 'HomePageCopy',
+              path: 'homePageCopy',
+              builder: (context, params) => params.isEmpty
+                  ? const NavBarPage(initialPage: 'HomePageCopy')
+                  : const HomePageCopyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
